@@ -16,11 +16,11 @@ const styles = {
 
 const Navigation = () => (
   <nav>
-    <NavLink to="/" style={styles.link} activeStyle={styles.activeLink}>
+    <NavLink to="/" style={styles.link} activestyle={styles.activeLink}>
       Home
     </NavLink>
 
-    <NavLink to="/contacts" style={styles.link} activeStyle={styles.activeLink}>
+    <NavLink to="/contacts" style={styles.link} activestyle={styles.activeLink}>
       Contacts
     </NavLink>
   </nav>
