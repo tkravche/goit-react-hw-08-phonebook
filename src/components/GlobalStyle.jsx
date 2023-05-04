@@ -8,7 +8,7 @@ export const GlobalStyle = createGlobalStyle`
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color:   cornsilk;
+    background-color:   #eaebfe;
     font-size: 20px;
      }
   code {
@@ -37,7 +37,9 @@ img {
 a {
 text-decoration: none;
 }
-
+ nav{
+  display:inline-block;
+ }
 button {
   padding: 0;
   border: none;

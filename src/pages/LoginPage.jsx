@@ -2,16 +2,18 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import authOperations from '../redux/auth/auth-operations';
 
-const styles = {
-  form: {
-    width: 320,
-  },
-  label: {
-    display: 'flex',
-    flexDirection: 'column',
-    marginBottom: 15,
-  },
-};
+import Stack from '@mui/material/Stack';
+
+import {
+  Button,
+  Typography,
+  FormLabel,
+  TextField,
+  InputAdornment,
+} from '@mui/material';
+import Box from '@mui/material/Box';
+import MailOutlineIcon from '@mui/icons-material/MailOutline';
+import KeyIcon from '@mui/icons-material/Key';
 
 export function LoginPage() {
   const dispatch = useDispatch();
@@ -38,31 +40,84 @@ export function LoginPage() {
 
   return (
     <div>
-      <h1>Login Page</h1>
+      <Box
+        sx={{
+          width: '30%',
+          border: '4px ridge #009688',
+          borderRadius: 4,
+          mt: 10,
+          ml: 65,
+        }}
+      >
+        <Typography
+          variant="h4"
+          sx={{
+            fontWeight: '600',
+            textAlign: 'center',
+            mt: 3,
+            color: '#004d40',
+          }}
+        >
+          Login Page
+        </Typography>
 
-      <form onSubmit={handleSubmit} style={styles.form} autoComplete="off">
-        <label style={styles.label}>
-          E-mail
-          <input
-            type="email"
-            name="email"
-            value={email}
-            onChange={handleChange}
-          />
-        </label>
+        <form onSubmit={handleSubmit} autoComplete="off">
+          <Stack
+            spacing={2}
+            direction="column"
+            paddingTop={4}
+            paddingBottom={4}
+            alignItems="center"
+          >
+            <FormLabel>
+              <TextField
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <MailOutlineIcon />
+                    </InputAdornment>
+                  ),
+                }}
+                label="E-mail"
+                size="large"
+                type="email"
+                name="email"
+                value={email}
+                onChange={handleChange}
+              />
+            </FormLabel>
 
-        <label style={styles.label}>
-          Password
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={handleChange}
-          />
-        </label>
-
-        <button type="submit">Sign in</button>
-      </form>
+            <FormLabel>
+              <TextField
+                InputProps={{
+                  startAdornment: (
+                    <InputAdornment position="start">
+                      <KeyIcon />
+                    </InputAdornment>
+                  ),
+                }}
+                label="password"
+                size="large"
+                type="password"
+                name="password"
+                value={password}
+                onChange={handleChange}
+              />
+            </FormLabel>
+            <Button
+              size="large"
+              variant="contained"
+              type="submit"
+              sx={{
+                color: '#ffffff',
+                backgroundColor: '#00695c',
+              }}
+            >
+              Sign in
+            </Button>
+          </Stack>
+        </form>
+      </Box>
     </div>
   );
 }

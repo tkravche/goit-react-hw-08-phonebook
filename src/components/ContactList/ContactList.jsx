@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
 
+import Stack from '@mui/material/Stack';
 import { selectContacts, selectFilter } from 'redux/contacts/selectors';
 import { Contact } from 'components/Contact/Contact';
 
@@ -16,11 +17,17 @@ export const ContactList = () => {
       });
   };
   return (
-    <ul>
-      {contacts &&
+    <Stack
+      component="ul"
+      spacing={2}
+      direction="column"
+      alignItems="center"
+      sx={{ mt: '40px' }}
+    >
+      {contacts.length > 0 &&
         handlefilteredContacts().map(({ name, number, id }) => (
           <Contact key={id} id={id} name={name} number={number} />
         ))}
-    </ul>
+    </Stack>
   );
 };

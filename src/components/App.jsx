@@ -10,12 +10,12 @@ import authOperations from '../redux/auth/auth-operations';
 import PrivateRoute from './PrivateRoute';
 import PublicRoute from './PublicRoute';
 
-import AppBar from './AppBar';
+import AppBarHeader from './AppBar';
 
 export const App = () => {
   const dispatch = useDispatch();
   const { isRefreshing } = useAuth();
-
+  console.log(isRefreshing);
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
   }, [dispatch]);
@@ -24,7 +24,7 @@ export const App = () => {
     <h1>Refreshing user...</h1>
   ) : (
     <>
-      <AppBar />
+      <AppBarHeader />
       <Routes>
         <Route path="/" element={<PublicRoute component={<HomePage />} />} />
 
@@ -33,7 +33,7 @@ export const App = () => {
           element={
             <PublicRoute
               restricted
-              redirectTo="/todos"
+              redirectTo="/contacts"
               component={<RegisterPage />}
             />
           }

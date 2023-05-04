@@ -1,4 +1,5 @@
-import { StyledInput, StyledTitle } from 'components/Filter/Filter.styled';
+import { TextField } from '@mui/material';
+
 import { useDispatch } from 'react-redux';
 import { setFilter } from 'redux/contacts/slice';
 
@@ -6,8 +7,9 @@ export const Filter = () => {
   const dispatch = useDispatch();
   return (
     <>
-      <StyledTitle>Find contacts by name</StyledTitle>
-      <StyledInput
+      <h1>Find contacts by name</h1>
+      <TextField
+        label="search"
         type="text"
         name="name"
         pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"

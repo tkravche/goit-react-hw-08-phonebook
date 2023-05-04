@@ -1,17 +1,15 @@
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import Typography from '@mui/material/Typography';
 import authOperations from '../redux/auth/auth-operations';
 
-const styles = {
-  form: {
-    width: 320,
-  },
-  label: {
-    display: 'flex',
-    flexDirection: 'column',
-    marginBottom: 15,
-  },
-};
+import { Box } from '@mui/material';
+import TextField from '@mui/material/TextField';
+import { Button } from '@mui/material';
+
+import Stack from '@mui/material/Stack';
+
+import { FormLabel } from '@mui/material';
 
 export function RegisterPage() {
   const dispatch = useDispatch();
@@ -41,37 +39,108 @@ export function RegisterPage() {
   };
 
   return (
-    <div>
-      <h1>Registration page</h1>
+    <Box
+      sx={{
+        width: '30%',
+        border: '5px ridge #009688',
+        borderRadius: 4,
+        mt: 10,
+        ml: 65,
+      }}
+    >
+      <Typography
+        variant="h4"
+        sx={{
+          fontWeight: '600',
+          textAlign: 'center',
+          mt: 3,
+          color: '#004d40',
+        }}
+      >
+        Registration page
+      </Typography>
 
-      <form onSubmit={handleSubmit} style={styles.form} autoComplete="off">
-        <label style={styles.label}>
-          Username
-          <input type="text" name="name" value={name} onChange={handleChange} />
-        </label>
+      <form onSubmit={handleSubmit} autoComplete="off">
+        <Stack
+          spacing={3}
+          direction="column"
+          paddingTop={4}
+          paddingBottom={4}
+          alignItems="center"
+        >
+          <FormLabel
+            sx={{
+              display: 'flex',
+              gap: 3,
+              justifyContent: 'flex-start',
+              alignItems: 'center',
+              fontWeight: '500',
+              color: '#004d40',
+            }}
+          >
+            Username
+            <TextField
+              sx={{ pr: 1 }}
+              size="large"
+              type="text"
+              name="name"
+              value={name}
+              onChange={handleChange}
+            />
+          </FormLabel>
 
-        <label style={styles.label}>
-          E-mail
-          <input
-            type="email"
-            name="email"
-            value={email}
-            onChange={handleChange}
-          />
-        </label>
+          <FormLabel
+            sx={{
+              display: 'flex',
+              gap: 6,
+              justifyContent: 'flex-start',
+              alignItems: 'center',
+              fontWeight: '500',
+              color: '#004d40',
+            }}
+          >
+            E-mail
+            <TextField
+              size="large"
+              type="email"
+              name="email"
+              value={email}
+              onChange={handleChange}
+            />
+          </FormLabel>
 
-        <label style={styles.label}>
-          Password
-          <input
-            type="password"
-            name="password"
-            value={password}
-            onChange={handleChange}
-          />
-        </label>
+          <FormLabel
+            sx={{
+              display: 'flex',
+              gap: 3,
+              justifyContent: 'flex-start',
+              alignItems: 'center',
+              fontWeight: '500',
+              color: '#004d40',
+            }}
+          >
+            Password
+            <TextField
+              type="password"
+              name="password"
+              value={password}
+              onChange={handleChange}
+            />
+          </FormLabel>
 
-        <button type="submit">Register</button>
+          <Button
+            size="large"
+            variant="contained"
+            type="submit"
+            sx={{
+              color: '#ffffff',
+              backgroundColor: '#00695c',
+            }}
+          >
+            Register
+          </Button>
+        </Stack>
       </form>
-    </div>
+    </Box>
   );
 }

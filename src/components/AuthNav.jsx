@@ -1,32 +1,37 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
+import { Container } from '@mui/material';
 
-const styles = {
-  link: {
-    display: 'inline-block',
-    textDecoration: 'none',
-    padding: 12,
-    fontWeight: 700,
-    color: '#2A363B',
-  },
-  activeLink: {
-    color: '#E84A5F',
-  },
-};
+import { Typography } from '@mui/material';
+import Link from '@mui/material/Link';
 
 export default function AuthNav() {
   return (
-    <div>
-      <NavLink
+    <Container sx={{ display: 'flex', justifyContent: 'flex-end' }}>
+      <Link
+        component={NavLink}
         to="/register"
-        style={styles.link}
-        activestyle={styles.activeLink}
+        sx={{
+          color: '#e0f2f1',
+          '&:hover': { color: '#00695c' },
+          '&.active': { color: '#004d40' },
+        }}
       >
-        Registration
-      </NavLink>
-      <NavLink to="/login" style={styles.link} activestyle={styles.activeLink}>
-        Login
-      </NavLink>
-    </div>
+        <Typography variant="h5">Registration</Typography>
+      </Link>
+      <Link
+        component={NavLink}
+        to="/login"
+        sx={{
+          color: '#e0f2f1',
+          '&:hover': { color: '#00695c' },
+          '&.active': { color: '#004d40' },
+        }}
+      >
+        <Typography variant="h5" sx={{ ml: 2 }}>
+          Login
+        </Typography>
+      </Link>
+    </Container>
   );
 }
