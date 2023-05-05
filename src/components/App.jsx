@@ -27,7 +27,7 @@ export const App = () => {
       <AppBarHeader />
       <Routes>
         <Route path="/" element={<PublicRoute component={<HomePage />} />} />
-        <Route index element={<PublicRoute component={<HomePage />} />} />
+
         <Route
           path="/register"
           element={
