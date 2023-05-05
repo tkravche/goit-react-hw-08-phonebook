@@ -33,7 +33,17 @@ export const ContactsPage = () => {
         </Typography>
         {loading && !error && <b>Request in progress...</b>}
         <ContactForm />
-        <h2>Contacts</h2>
+        <Typography
+          variant="h4"
+          sx={{
+            fontWeight: '600',
+            textAlign: 'center',
+            mt: 3,
+            color: '#004d40',
+          }}
+        >
+          Contacts
+        </Typography>
         <Filter />
         <ContactList />
       </Container>

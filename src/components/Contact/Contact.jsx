@@ -15,7 +15,7 @@ export const Contact = ({ name, number, id }) => {
         direction="row"
         justifyContent="space-between"
         alignItems="baseline"
-        sx={{ listStyle: 'none', width: '25vw' }}
+        sx={{ listStyle: 'none', width: '30vw' }}
       >
         <Typography
           component="li"
