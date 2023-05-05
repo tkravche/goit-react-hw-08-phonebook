@@ -15,7 +15,7 @@ import AppBarHeader from './AppBar';
 export const App = () => {
   const dispatch = useDispatch();
   const { isRefreshing } = useAuth();
-  console.log(isRefreshing);
+
   useEffect(() => {
     dispatch(authOperations.fetchCurrentUser());
   }, [dispatch]);
@@ -27,7 +27,7 @@ export const App = () => {
       <AppBarHeader />
       <Routes>
         <Route path="/" element={<PublicRoute component={<HomePage />} />} />
-
+        <Route index element={<PublicRoute component={<HomePage />} />} />
         <Route
           path="/register"
           element={

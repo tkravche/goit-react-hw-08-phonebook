@@ -24,7 +24,7 @@ export const ContactList = () => {
       alignItems="center"
       sx={{ mt: '40px' }}
     >
-      {contacts.length > 0 &&
+      {contacts &&
         handlefilteredContacts().map(({ name, number, id }) => (
           <Contact key={id} id={id} name={name} number={number} />
         ))}
